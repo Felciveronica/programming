@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <style>
+    .mycontainer {
+      background-image: linear-gradient(to right, rgb(255, 255, 255), white);
+      display: flex;
+      padding: 5%;
+      justify-content: space-between;
+      column-gap: 3%;
+      width: 90%;
+      height: 75vh;
+
+    }
+
+    .outercontainer {
+      margin: 0px;
+    }
+
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+
+
+    .group1 {
+      display: grid;
+      height: 80%;
+      column-gap: 10%;
+      row-gap: 10%;
+      grid-template-columns: auto auto;
+      width: 15%;
+      flex: 2;
+
+    }
+
+    /** images in group1 **/
+    #image1 {
+      border-radius: 25%;
+      border: rgb(210, 208, 208) solid;
+    }
+
+
+
+
+    #group2 {
+      flex: 4;
+
+    }
+
+    #group3 {
+      flex: 8;
+      padding-left: 3%;
+      border-left: solid 2px rgb(181, 180, 180)
+    }
+
+
+
+    /**  star ratings **/
+    .checked {
+      color: gold;
+    }
+
+    .colorspan {
+      width: 4.5vw;
+      max-width: 50px;
+      min-width: 25px;
+      height: 4.5vw;
+      max-height: 50px;
+      min-height: 25px;
+      border-radius: 8px;
+      display: inline-block;
+      box-sizing: border-box;
+      border: 1px solid rgb(21, 12, 12);
+
+    }
+
+    /** Buttons   **/
+    button {
+      width: 25%;
+      height: 8vw;
+      border: 1px solid black;
+      border-radius: 5%;
+      font-size: 2.3vw;
+    }
+
+    .b2
+     {
+      background-color: rgb(0, 116, 249);
+    }
+
+    .b1
+     {
+      background-color: rgb(244, 227, 48);
+    }
+
+    .b3 
+     {
+      background-color: brown;
+    }
+
+
+    /** check mark **/
+    .checkcircle {
+      
+      color: green;
+
+      
+    }
+
+    /** add to cart alert modal **/
+    #mymodal 
+    {
+      border: solid black 2px;
+      border-radius: 5px;
+      background-color: white;
+      width: 90vw;
+      height: 50vw;
+      max-width: 400px;
+      max-height: 200px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 165%;
+    }
+
+    .modalbutton {
+      
+      width: 35%;
+      height: 28%;
+      font-size: min(85%, 20px);
+    }
+
+    .xicon {
+      display: block;
+      color: black;
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+      float: right;
+      margin: 10px;
+    }
+   
+
+
+    img {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+    }
+
+    /** product title **/
+    h1 {
+      font-size: 2vw;
+      color: rgb(93, 17, 93);
+    }
+
+
+
+
+    /** For large sreen sizes **/
+    @media ((min-width:920px) and (max-width:1285px)) {
+      .mycontainer {
+        display: flex;
+        flex-direction: row;
+        height: 25vw;
+        width: 100%;
+        column-gap: 0px;
+
+      }
+
+      #group1 {
+        height: 150%;
+        margin-top: 2%;
+        display: grid;
+        grid-template-rows: repeat(5, 20%);
+        grid-template-columns: 70%;
+        row-gap: 10px;
+        object-fit: contain;
+        height: 70;
+        flex: 1;
+
+      }
+
+      #group2 {
+        padding-top: 5%;
+        flex: 4;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        margin-right: 3%;
+        max-height: max-content;
+
+      }
+
+      #group3 {
+        padding-left: 3%;
+        border-left: 2px solid rgb(181, 180, 180);
+        flex: 7;
+        height: 40vw;
+      }
+
+      h1 {
+        font-size: 2.5vw;
+      }
+    }
+
+
+    /**  For medium screen size **/
+    @media ((min-width:650px) and (max-width:920px)) {
+
+      .mycontainer {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        row-gap: 5%;
+        margin-left: 4%;
+      }
+
+      #group1 {
+        margin-top: 5%;
+        display: grid;
+        height: 100%;
+        column-gap: 10%;
+        grid-template-rows: 15% 15% 15%;
+        grid-template-columns: auto auto;
+        width: 100%;
+      }
+
+
+      #group2 {
+        display: block;
+        width: 100%;
+      }
+
+      #group3 {
+        display: block;
+        width: 100%;
+        border-top: 2px solid rgb(181, 180, 180);
+        border-left: 0px;
+        padding-top: 2%;
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+      }
+
+      h1 {
+        font-size: 4vw;
+      }
+
+    }
+
+
+    /** For small sreen sizes **/
+    @media(max-width:650px) {
+      .mycontainer {
+        display: grid;
+        grid-template-columns: 25% 100%;
+        row-gap: 5%;
+        margin-left: 3%;
+        column-gap: 0px;
+
+      }
+
+      .group1 {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        order: 0;
+        margin: 0px;
+        height: 20%;
+      }
+
+      #group2 {
+        margin: 0px;
+        width: 60vw;
+      }
+
+      #group3 {
+        border-top: 2px solid rgb(181, 180, 180);
+        border-left: 0px;
+        padding-top: 2%;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-top: 15% 0px;
+
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 5vw;
+
+      }
+
+      #mymodal {
+        font-size: max(4vw,15px);
+      }
+      .xicon
+      {width:20px;
+      height:20px;
+    }
+    .modalbutton
+    {font-size: 75%;
+    width:35%;
+  min-width:100px ;}
+
+    }
+
+
+    /**    For mobile screen size **/
+    @media(max-width:380px) {
+      .mycontainer {
+        display: flex;
+        flex-direction: column;
+
+        margin: 8% 0px;
+        width: 100%;
+        row-gap: 2%;
+      }
+
+      #image1 {
+        border-radius: 15px;
+        border: solid rgb(210, 208, 208) 2px;
+      }
+
+      #group1 {
+        order: 2;
+        display: flex;
+        flex-direction: row;
+        width: 88vw;
+        column-gap: 3%;
+        padding: 0px;
+        border-bottom: solid 2px rgb(210, 208, 208);
+        row-gap: 0px;
+
+      }
+
+      #group2 {
+        order: 1;
+
+        -webkit-order: 1;
+        width: 100%;
+      }
+
+      #group3 {
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        order: 3;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color:rgb(129, 28, 90) ;;">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="color: white;">Logo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header style="height:30px;background-color: rgb(209, 209, 209);padding:5px;">
+    <h6>Collections > plushies >Unicorns </h6>
+  </header>
+  <div class="outercontainer">
+    <div class="mycontainer">
+
+      <div id="group1" class="group1">
+        <div class="content1" onclick="changeimage(0)">
+          <div>
+            <img id="image1" src="yellow.jpeg" alt="content1">
+          </div>
+        </div>
+        <div class="content2" onclick="changeimage(1)">
+          <div>
+            <img id="image1" src="pink.jpeg" alt="content2" style="border:black solid 2px">
+          </div>
+        </div>
+
+        <div class="content3" onclick="changeimage(2)">
+          <div>
+            <img id="image1" src="orange.jpeg" alt="content3">
+          </div>
+        </div>
+        <div class="content4" onclick="changeimage(3)">
+          <div>
+            <img id="image1" src="green.jpeg" alt="content4">
+          </div>
+
+        </div>
+
+        <div class="content5" onclick="changeimage(4)">
+          <div>
+            <img id="image1" src="unicorn.jpeg" alt="content5">
+          </div>
+        </div>
+      </div>
+      <div id="group2">
+        <div class="holder">
+          <img id="mainimage" src="pink.jpeg" style="border-radius: 25px;border:solid gray ">
+        </div>
+      </div>
+
+      <div id="group3">
+        <div>
+          <h1>Cute Unicorn plush toys , Kidspace Toy Store, 25cm</h1>
+        </div>
+        <div><span>4.8</span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        </div>
+        <h4> Colours : </h4>
+        <div style="display: inline;">
+          <div class="colorspan" style="background-color:pink;"></div>
+          <div class="colorspan" style="background-color:yellow;"></div>
+          <div class="colorspan" style="background-color:orangered;"></div>
+          <div class="colorspan" style="background-color:green"></div>
+        </div>
+        <div>
+          <p> Description:</p>
+          <p>Only the finest of qaulity materials are used to craft our product</p>
+          <p>Shed proof and soft material</p>
+          <p>25 cm perfect for your little one</p>
+          <p>birthday gift, valentines day gift, gitf for friend</p>
+          <p>share love and...
+            <a rel="noopener" target="_parent" href="#description">see more</a>
+          </p>
+        </div>
+        <button id="addtocart" class="b1" onclick="openmodal()"><i class="bi bi-cart3"></i> Add to Cart</button>
+        <button id="buynow" class="b2"> Buy now</button>
+        <button id="viewcart" class="b3">View cart</button>
+
+
+        <div class="modal text-center" id="mymodal">
+          <p onclick="closemodal()"><img src="x-lg.svg" class="xicon"></img></p>
+          <p style="margin-top: 10%;margin-left: 25px;"> Added to cart succesfully</p>
+          <i class="bi bi-check2-circle checkcircle"></i>
+          <button id="viewcart" class="modalbutton"><i class="bi bi-cart3"></i> View cart</button>
+        </div>
+
+
+        <div id="description">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="newscript.js"></script>
+</body>
+
+
+</html>
